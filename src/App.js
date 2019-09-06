@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/header';
+import SearchEvent from './components/searchEvent';
+import EventList from './components/eventList';
+import CategoriesProvider from './context/categoriesContext';
+import EventsProvider from './context/eventsContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <EventsProvider>
+      <CategoriesProvider>
+        <Header title="EventsBrite"></Header>
+        <div className="uk-container">
+          <SearchEvent></SearchEvent>
+          <EventList></EventList>
+        </div>
+      </CategoriesProvider>
+   </EventsProvider> 
   );
 }
 
